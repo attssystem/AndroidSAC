@@ -34,11 +34,13 @@ public class MainActivity extends AppCompatActivity {
         button2 = (Button)findViewById(R.id.overcpu);
         button3 = (Button)findViewById(R.id.fix);
 
+        scoreUpdate();
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verizonServers--;
-                textUpdate(term, ">MITM-Verizon servers -1", Color.GREEN);
+                textUpdate(term, "\n>MITM-Verizon servers -1", Color.GREEN);
                 vattack();
                 checkwin();
             }
@@ -53,22 +55,22 @@ public class MainActivity extends AppCompatActivity {
                 if (rand == 1)
                 {
                     verizonServers --;
-                    textUpdate(term, ">OverCPU-Verizon servers -1", Color.GREEN);
+                    textUpdate(term, "\n>OverCPU-Verizon servers -1", Color.GREEN);
                 }
                 else if (rand == 2)
                 {
                     verizonServers -= 2;
-                    textUpdate(term, ">OverCPU-Verizon servers -2", Color.GREEN);
+                    textUpdate(term, "\n>OverCPU-Verizon servers -2", Color.GREEN);
                 }
                 else if (rand == 3)
                 {
                     verizonServers -= 3;
-                    textUpdate(term, ">OverCPU-Verizon servers -3", Color.GREEN);
+                    textUpdate(term, "\n>OverCPU-Verizon servers -3", Color.GREEN);
                 }
                 else if (rand == 4)
                 {
                     verizonServers -= 4;
-                    textUpdate(term, ">OverCPU-Verizon servers -4", Color.GREEN);
+                    textUpdate(term, "\n>OverCPU-Verizon servers -4", Color.GREEN);
                 }
 
                 Random r1 = new Random();
@@ -77,12 +79,12 @@ public class MainActivity extends AppCompatActivity {
                 if (rand == 1)
                 {
                     attsServers --;
-                    textUpdate(term, ">OverCPU-ATTS servers -1", Color.RED);
+                    textUpdate(term, "\n>OverCPU-ATTS servers -1", Color.RED);
                 }
                 else if (rand == 2)
                 {
                     attsServers -=2;
-                    textUpdate(term, ">OverCPU-ATTS servers -2", Color.RED);
+                    textUpdate(term, "\n>OverCPU-ATTS servers -2", Color.RED);
                 }
                 vattack();
                 checkwin();
@@ -104,23 +106,23 @@ public class MainActivity extends AppCompatActivity {
         rand = r.nextInt(4 - 1) + 1;
         if (rand == 1) {
             attsServers--;
-            textUpdate(term, ">MITM-ATTS servers -1", Color.RED);
+            textUpdate(term, "\n>MITM-ATTS servers -1", Color.RED);
         } else if (rand == 2) {
             Random r1 = new Random();
             rand = r1.nextInt(5 - 1) + 1;
 
             if (rand == 1) {
                 attsServers--;
-                textUpdate(term, ">OverCPU-ATTS servers -1", Color.RED);
+                textUpdate(term, "\n>OverCPU-ATTS servers -1", Color.RED);
             } else if (rand == 2) {
                 attsServers -= 2;
-                textUpdate(term, ">OverCPU-ATTS servers -2", Color.RED);
+                textUpdate(term, "\n>OverCPU-ATTS servers -2", Color.RED);
             } else if (rand == 3) {
                 attsServers -= 3;
-                textUpdate(term, ">OverCPU-ATTS servers -3", Color.RED);
+                textUpdate(term, "\n>OverCPU-ATTS servers -3", Color.RED);
             } else if (rand == 4) {
                 attsServers -= 4;
-                textUpdate(term, ">OverCPU-ATTS servers -4", Color.RED);
+                textUpdate(term, "\n>OverCPU-ATTS servers -4", Color.RED);
             }
 
             Random r2 = new Random();
@@ -128,13 +130,13 @@ public class MainActivity extends AppCompatActivity {
 
             if (rand == 1) {
                 verizonServers--;
-                textUpdate(term, ">OverCPU-Verizon servers -1", Color.GREEN);
+                textUpdate(term, "\n>OverCPU-Verizon servers -1", Color.GREEN);
             } else if (rand == 2) {
                 verizonServers -= 2;
-                textUpdate(term, ">OverCPU-Verizon servers -2", Color.GREEN);
+                textUpdate(term, "\n>OverCPU-Verizon servers -2", Color.GREEN);
             } else if (rand == 3) {
                 verizonServers++;
-                textUpdate(term, ">Verizon servers + 1", Color.RED);
+                textUpdate(term, "\n>Verizon servers + 1", Color.RED);
             }
         }
     }
@@ -143,19 +145,18 @@ public class MainActivity extends AppCompatActivity {
     {
         if (attsServers <= 0)
         {
-            textUpdate(term, ">You lose!", Color.RED);
-            textUpdate(term, ">GAME RESTARTED", Color.BLUE);
+            textUpdate(term, "\n>You lose!", Color.RED);
+            textUpdate(term, "\n>GAME RESTARTED", Color.BLUE);
             attsServers = 20;
             verizonServers = 20;
         }
         else if (verizonServers <= 0)
         {
-            textUpdate(term, ">You win!", Color.GREEN);
-            textUpdate(term, ">You were appointed chief of the security team!", Color.GREEN);
-            textUpdate(term, ">GAME RESTARTED", Color.BLUE);
+            textUpdate(term, "\n>You win!", Color.GREEN);
+            textUpdate(term, "\n>You were appointed chief of the security team!", Color.GREEN);
+            textUpdate(term, "\n>GAME RESTARTED", Color.BLUE);
             attsServers = 20;
             verizonServers = 20;
-            System.getProperty("line.separator")
         }
     }
 
