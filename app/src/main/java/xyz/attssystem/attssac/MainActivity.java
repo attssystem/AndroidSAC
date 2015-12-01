@@ -19,90 +19,83 @@ public class MainActivity extends AppCompatActivity {
     TextView term;
     TextView aServers;
     TextView vServers;
-    Button button;
-    Button button2;
-    Button button3;
+    Button mitm;
+    Button overCpu;
+    Button fix;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        term = (TextView)findViewById(R.id.term);
-        aServers = (TextView)findViewById(R.id.aServers);
-        vServers = (TextView)findViewById(R.id.vServers);
-        button = (Button)findViewById(R.id.mitm);
-        button2 = (Button)findViewById(R.id.overcpu);
-        button3 = (Button)findViewById(R.id.fix);
+        term = (TextView) findViewById(R.id.term);
+        aServers = (TextView) findViewById(R.id.aServers);
+        vServers = (TextView) findViewById(R.id.vServers);
+        mitm = (Button) findViewById(R.id.mitm);
+        overCpu = (Button) findViewById(R.id.overcpu);
+        fix = (Button) findViewById(R.id.fix);
 
-        scoreUpdate();
 
-        button.setOnClickListener(new View.OnClickListener() {
+        mitm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verizonServers--;
                 textUpdate(term, "\n>MITM-Verizon servers -1", Color.GREEN);
-                vattack();
-                checkwin();
+                vAttack();
+                checkWin();
             }
 
         });
-        button2.setOnClickListener(new View.OnClickListener() {
+        overCpu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Random r = new Random();
-                rand = r.nextInt(5 - 1) + 1;
-
-                if (rand == 1)
-                {
-                    verizonServers --;
-                    textUpdate(term, "\n>OverCPU-Verizon servers -1", Color.GREEN);
-                }
-                else if (rand == 2)
-                {
-                    verizonServers -= 2;
-                    textUpdate(term, "\n>OverCPU-Verizon servers -2", Color.GREEN);
-                }
-                else if (rand == 3)
-                {
-                    verizonServers -= 3;
-                    textUpdate(term, "\n>OverCPU-Verizon servers -3", Color.GREEN);
-                }
-                else if (rand == 4)
-                {
-                    verizonServers -= 4;
-                    textUpdate(term, "\n>OverCPU-Verizon servers -4", Color.GREEN);
-                }
-
-                Random r1 = new Random();
-                rand = r1.nextInt(4 - 1) + 1;
-
-                if (rand == 1)
-                {
-                    attsServers --;
-                    textUpdate(term, "\n>OverCPU-ATTS servers -1", Color.RED);
-                }
-                else if (rand == 2)
-                {
-                    attsServers -=2;
-                    textUpdate(term, "\n>OverCPU-ATTS servers -2", Color.RED);
-                }
-                vattack();
-                checkwin();
+                overCpuAtts();
             }
         });
-        button3.setOnClickListener(new View.OnClickListener() {
+        fix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 attsServers++;
-                vattack();
-                checkwin();
+                vAttack();
+                checkWin();
             }
         });
 
     }
 
-    public void vattack() {
+    public void overCpuAtts() {
+        Random r = new Random();
+        rand = r.nextInt(5 - 1) + 1;
+
+        if (rand == 1) {
+            verizonServers--;
+            textUpdate(term, "\n>OverCPU-Verizon servers -1", Color.GREEN);
+        } else if (rand == 2) {
+            verizonServers -= 2;
+            textUpdate(term, "\n>OverCPU-Verizon servers -2", Color.GREEN);
+        } else if (rand == 3) {
+            verizonServers -= 3;
+            textUpdate(term, "\n>OverCPU-Verizon servers -3", Color.GREEN);
+        } else if (rand == 4) {
+            verizonServers -= 4;
+            textUpdate(term, "\n>OverCPU-Verizon servers -4", Color.GREEN);
+        }
+
+        Random r1 = new Random();
+        rand = r1.nextInt(4 - 1) + 1;
+
+        if (rand == 1) {
+            attsServers--;
+            textUpdate(term, "\n>OverCPU-ATTS servers -1", Color.RED);
+        } else if (rand == 2) {
+            attsServers -= 2;
+            textUpdate(term, "\n>OverCPU-ATTS servers -2", Color.RED);
+        }
+        vAttack();
+        checkWin();
+    }
+
+    public void vAttack() {
         Random r = new Random();
         rand = r.nextInt(4 - 1) + 1;
         if (rand == 1) {
@@ -142,17 +135,13 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void checkwin()
-    {
-        if (attsServers <= 0)
-        {
+    public void checkWin() {
+        if (attsServers <= 0) {
             textUpdate(term, "\n>You lose!", Color.RED);
             textUpdate(term, "\n>GAME RESTARTED", Color.BLUE);
             attsServers = 20;
             verizonServers = 20;
-        }
-        else if (verizonServers <= 0)
-        {
+        } else if (verizonServers <= 0) {
             textUpdate(term, "\n>You win!", Color.GREEN);
             textUpdate(term, "\n>You were appointed chief of the security team!", Color.GREEN);
             textUpdate(term, "\n>GAME RESTARTED", Color.BLUE);
@@ -161,37 +150,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void scoreUpdate()
-    {
-        aServers.setText(String.valueOf(attsServers));
-        vServers.setText(String.valueOf(verizonServers));
+    public void textUpdate(TextView tv, String textToAdd, int color) {
+
+                SpannableStringBuilder builder = new SpannableStringBuilder();
+                String textContentView = tv.getText().toString();
+                SpannableString textSpannable = new SpannableString(textToAdd);
+                textSpannable.setSpan(new ForegroundColorSpan(color), 0, textSpannable.length(), 0);
+                builder.append(new SpannableString(textContentView));
+                builder.append(textSpannable);
+                tv.setText(builder, TextView.BufferType.SPANNABLE);
+                tv.setMovementMethod(new ScrollingMovementMethod());
+                scroll();
+                aServers.setText(String.valueOf(attsServers));
+                vServers.setText(String.valueOf(verizonServers));
+
     }
 
-    public void textUpdate(TextView tv, String textToAdd, int color){
-        SpannableStringBuilder builder = new SpannableStringBuilder();
-        String textContentView = tv.getText().toString();
-        SpannableString textSpannable = new SpannableString(textToAdd);
-        textSpannable.setSpan(new ForegroundColorSpan(color), 0, textSpannable.length(), 0);
-        builder.append(new SpannableString(textContentView));
-        builder.append(textSpannable);
-        tv.setText(builder, TextView.BufferType.SPANNABLE);
-        tv.setMovementMethod(new ScrollingMovementMethod());
-        addMessage();
-        aServers.setText(String.valueOf(attsServers));
-        vServers.setText(String.valueOf(verizonServers));
-    }
-
-    private void addMessage() {
-        // find the amount we need to scroll.  This works by
-        // asking the TextView's internal layout for the position
-        // of the final line and then subtracting the TextView's height
+    public void scroll() {
         final int scrollAmount = term.getLayout().getLineTop(term.getLineCount()) - term.getHeight();
-        // if there is no need to scroll, scrollAmount will be <=0
         if (scrollAmount > 0)
             term.scrollTo(0, scrollAmount);
         else
             term.scrollTo(0, 0);
     }
-
-    }
+}
 
