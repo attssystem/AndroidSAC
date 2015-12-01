@@ -3,6 +3,7 @@ package xyz.attssystem.attssac;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.text.SpannableString;
+import android.text.method.ScrollingMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.widget.*;
 import android.view.*;
@@ -170,11 +171,26 @@ public class MainActivity extends AppCompatActivity {
         SpannableStringBuilder builder = new SpannableStringBuilder();
         String textContentView = tv.getText().toString();
         SpannableString textSpannable = new SpannableString(textToAdd);
-        textSpannable.setSpan(new ForegroundColorSpan(color), 0, textToAdd.length(), 0);
+        textSpannable.setSpan(new ForegroundColorSpan(color), 0, textSpannable.length(), 0);
         builder.append(new SpannableString(textContentView));
         builder.append(textSpannable);
-        tv.setText("\n" + builder, TextView.BufferType.SPANNABLE);
-        scoreUpdate();
+        tv.setText(builder, TextView.BufferType.SPANNABLE);
+        tv.setMovementMethod(new ScrollingMovementMethod());
+        addMessage();
+        aServers.setText(String.valueOf(attsServers));
+        vServers.setText(String.valueOf(verizonServers));
+    }
+
+    private void addMessage() {
+        // find the amount we need to scroll.  This works by
+        // asking the TextView's internal layout for the position
+        // of the final line and then subtracting the TextView's height
+        final int scrollAmount = term.getLayout().getLineTop(term.getLineCount()) - term.getHeight();
+        // if there is no need to scroll, scrollAmount will be <=0
+        if (scrollAmount > 0)
+            term.scrollTo(0, scrollAmount);
+        else
+            term.scrollTo(0, 0);
     }
 
     }
