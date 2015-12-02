@@ -10,7 +10,6 @@ import android.widget.*;
 import android.view.*;
 import java.util.Random;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button mitm;
     Button overCPU;
     Button fix;
+    Button help;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         mitm = (Button) findViewById(R.id.mitm);
         overCPU = (Button) findViewById(R.id.overcpu);
         fix = (Button) findViewById(R.id.fix);
+        help = (Button) findViewById(R.id.button);
+
+        // It updates the scores.
+        aServers.setText(String.valueOf(attsServers));
+        vServers.setText(String.valueOf(verizonServers));
 
         // It says "Welcome" to the user.
         Spannable welcome = new SpannableString(">Welcome Admin.");
@@ -48,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
                 // It makes Verizon losing a server,
                 verizonServers--;
                 // It writes it in the "Terminal",
-                textUpdate(term, "\n>MITM-Verizon servers -1", Color.GREEN);
+                textUpdate(term, "\nA", Color.LTGRAY);
+                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, "MITM-Verizon servers -1", Color.WHITE);
                 // It makes Verizon hitting back.
                 vAttack();
                 // It verifies if someone won.
@@ -70,10 +77,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // It makes the user fixing a server.
                 attsServers++;
+                textUpdate(term, "\nA", Color.LTGRAY);
+                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, "FIX-ATTS severs + 1", Color.WHITE);
                 // It makes Verizon hitting back.
                 vAttack();
                 // It verifies if someone won.
                 checkWin();
+            }
+        });
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // It shows the "help".
+                textUpdate(term, "\n\n\nYou have 20 servers (as much as Verizon).\nYou have to destroy all of their servers before they do with yours.\nYou have 3 commands :\n-MITM : -1 Verizon server;\n-OVERCPU : Destroy 1 to 4 of their servers but 0 to 2 of yours too;\n-FIX : Fix one of your server.\nA GREEN arrow is good for you but a RED one isn't.\nAn 'A' line is your action,a 'V' is an action of Verizon.\n\nHugues Kadi aka ATTSSystem\n\n\n", Color.LTGRAY);
             }
         });
 
@@ -86,16 +103,24 @@ public class MainActivity extends AppCompatActivity {
         // Depending on the number value, Verizon will lose 1 to 4 server(s).
         if (rand == 1) {
             verizonServers--;
-            textUpdate(term, "\n>OverCPU-Verizon servers -1", Color.GREEN);
+            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, ">", Color.GREEN);
+            textUpdate(term, "OverCPU-Verizon servers -1", Color.WHITE);
         } else if (rand == 2) {
             verizonServers -= 2;
-            textUpdate(term, "\n>OverCPU-Verizon servers -2", Color.GREEN);
+            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, ">", Color.GREEN);
+            textUpdate(term, "OverCPU-Verizon servers -2", Color.WHITE);
         } else if (rand == 3) {
             verizonServers -= 3;
-            textUpdate(term, "\n>OverCPU-Verizon servers -3", Color.GREEN);
+            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, ">", Color.GREEN);
+            textUpdate(term, "OverCPU-Verizon servers -3", Color.WHITE);
         } else if (rand == 4) {
             verizonServers -= 4;
-            textUpdate(term, "\n>OverCPU-Verizon servers -4", Color.GREEN);
+            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, ">", Color.GREEN);
+            textUpdate(term, "OverCPU-Verizon servers -4", Color.WHITE);
         }
         // Then it takes another random value (1 to 2 included)
         Random r1 = new Random();
@@ -103,10 +128,14 @@ public class MainActivity extends AppCompatActivity {
         // If it is 0 nothing happens else the user will lose 1 to 2 server(s).
         if (rand == 1) {
             attsServers--;
-            textUpdate(term, "\n>OverCPU-ATTS servers -1", Color.RED);
+            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, ">", Color.RED);
+            textUpdate(term, "OverCPU-ATTS servers -1", Color.WHITE);
         } else if (rand == 2) {
             attsServers -= 2;
-            textUpdate(term, "\n>OverCPU-ATTS servers -2", Color.RED);
+            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, ">", Color.RED);
+            textUpdate(term, "OverCPU-ATTS servers -2", Color.WHITE);
         }
         // It makes Verizon hitting back.
         vAttack();
@@ -122,7 +151,9 @@ public class MainActivity extends AppCompatActivity {
         // Depending on the number value, Verizon will use a specific attack.
         if (rand == 1) {
             attsServers--;
-            textUpdate(term, "\n>MITM-ATTS servers -1", Color.RED);
+            textUpdate(term, "\nV", Color.LTGRAY);
+            textUpdate(term, ">", Color.RED);
+            textUpdate(term, "MITM-ATTS servers -1", Color.WHITE);
         } else if (rand == 2) {
             // It takes a random number (1 to 4 included),
             Random r1 = new Random();
@@ -130,16 +161,24 @@ public class MainActivity extends AppCompatActivity {
             // Depending on the number value, the user will lose 1 to 4 server(s).
             if (rand == 1) {
                 attsServers--;
-                textUpdate(term, "\n>OverCPU-ATTS servers -1", Color.RED);
+                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, ">", Color.RED);
+                textUpdate(term, "OverCPU-ATTS servers -1", Color.WHITE);
             } else if (rand == 2) {
                 attsServers -= 2;
-                textUpdate(term, "\n>OverCPU-ATTS servers -2", Color.RED);
+                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, ">", Color.RED);
+                textUpdate(term, "OverCPU-ATTS servers -2", Color.WHITE);
             } else if (rand == 3) {
                 attsServers -= 3;
-                textUpdate(term, "\n>OverCPU-ATTS servers -3", Color.RED);
+                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, ">", Color.RED);
+                textUpdate(term, "OverCPU-ATTS servers -3", Color.WHITE);
             } else if (rand == 4) {
                 attsServers -= 4;
-                textUpdate(term, "\n>OverCPU-ATTS servers -4", Color.RED);
+                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, ">", Color.RED);
+                textUpdate(term, "OverCPU-ATTS servers -4", Color.WHITE);
             }
             // It takes another random number (1 to 2 included),
             Random r2 = new Random();
@@ -147,27 +186,38 @@ public class MainActivity extends AppCompatActivity {
             // If it is 0 nothing happens else Verizon will lose 1 to 2 server(s).
             if (rand == 1) {
                 verizonServers--;
-                textUpdate(term, "\n>OverCPU-Verizon servers -1", Color.GREEN);
+                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, "OverCPU-Verizon servers -1", Color.WHITE);
             } else if (rand == 2) {
                 verizonServers -= 2;
-                textUpdate(term, "\n>OverCPU-Verizon servers -2", Color.GREEN);
+                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, "OverCPU-Verizon servers -2", Color.WHITE);
             } else if (rand == 3) {
                 verizonServers++;
-                textUpdate(term, "\n>Verizon servers + 1", Color.RED);
+                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, "Verizon servers + 1", Color.WHITE);
             }
         }
     }
     // This function verifies if someone won.
     public void checkWin() {
         if (attsServers <= 0) {
-            textUpdate(term, "\n>You lose!", Color.RED);
-            textUpdate(term, "\n>GAME RESTARTED", Color.BLUE);
+            textUpdate(term, "\n>_", Color.BLUE);
+            textUpdate(term, "You lose!", Color.RED);
+            textUpdate(term, "\n>_", Color.BLUE);
+            textUpdate(term, "GAME RESTARTED", Color.BLUE);
             attsServers = 20;
             verizonServers = 20;
         } else if (verizonServers <= 0) {
-            textUpdate(term, "\n>You win!", Color.GREEN);
-            textUpdate(term, "\n>You were appointed chief of the security team!", Color.GREEN);
-            textUpdate(term, "\n>GAME RESTARTED", Color.BLUE);
+            textUpdate(term, "\n>_", Color.BLUE);
+            textUpdate(term, "You win!", Color.GREEN);
+            textUpdate(term, "\n>_", Color.BLUE);
+            textUpdate(term, "You were appointed chief of the security team!", Color.GREEN);
+            textUpdate(term, "\n>_", Color.BLUE);
+            textUpdate(term, "GAME RESTARTED", Color.BLUE);
             attsServers = 20;
             verizonServers = 20;
         }
@@ -182,19 +232,19 @@ public class MainActivity extends AppCompatActivity {
         tv.append(spannableText);
         // It scrolls the "Terminal" if necessary.
         tv.setMovementMethod(new ScrollingMovementMethod());
-        scroll();
+        scroll(tv);
         // Then, it updates the players scores.
         aServers.setText(String.valueOf(attsServers));
         vServers.setText(String.valueOf(verizonServers));
     }
 
     // It makes the "Terminal" scrolling when it is full.
-    public void scroll() {
-        final int scrollAmount = term.getLayout().getLineTop(term.getLineCount()) - term.getHeight();
+    public void scroll(TextView tv) {
+        final int scrollAmount = tv.getLayout().getLineTop(tv.getLineCount()) - tv.getHeight();
         if (scrollAmount > 0)
-            term.scrollTo(0, scrollAmount);
+            tv.scrollTo(0, scrollAmount);
         else
-            term.scrollTo(0, 0);
+            tv.scrollTo(0, 0);
     }
 }
 
