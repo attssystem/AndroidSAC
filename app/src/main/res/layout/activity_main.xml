@@ -26,7 +26,6 @@
             android:layout_height="40dp"
             android:layout_width="100dp"
             android:text="MITM"
-            android:textColor="#990000"
             android:layout_below="@+id/textView"
             android:layout_alignLeft="@+id/textView2"
             android:layout_alignStart="@+id/textView2" />
@@ -37,17 +36,15 @@
             android:layout_height="40dp"
             android:layout_width="100dp"
             android:text="OverCPU"
-            android:textColor="#990000"
             android:layout_below="@+id/textView"
             android:layout_centerHorizontal="true" />
 
     <Button
-            style="?android:attr/buttonBarButtonStyle"
-            android:id="@+id/fix"
-            android:layout_height="40dp"
-            android:layout_width="100dp"
-            android:text="Fix"
-        android:textColor="#990000"
+        style="?android:attr/buttonBarButtonStyle"
+        android:id="@+id/fix"
+        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:text="Fix"
         android:layout_below="@+id/textView"
         android:layout_alignRight="@+id/textView4"
         android:layout_alignEnd="@+id/textView4" />

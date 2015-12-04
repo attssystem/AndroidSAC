@@ -2,32 +2,32 @@
 <items version="2" >
 
     <item
-        jar="/home/hugues/AndroidSAC/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
-        <dex dex="/home/hugues/AndroidSAC/app/build/intermediates/pre-dexed/release/classes-0d59ed96dd0d16ff17d9621b8bf1f4f4f660fa9a.jar" />
-    </item>
-    <item
-        jar="/home/hugues/AndroidSAC/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
-        <dex dex="/home/hugues/AndroidSAC/app/build/intermediates/pre-dexed/release/internal_impl-23.1.0-c561559ff046e596f4307db66f0f8629bb66d659.jar" />
-    </item>
-    <item
-        jar="/home/hugues/AndroidSAC/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jar="C:\Users\Hugues\AndroidSAC\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.0\jars\classes.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
-        <dex dex="/home/hugues/AndroidSAC/app/build/intermediates/pre-dexed/release/classes-936516e99e04d336c23a70b4f5f28fa88b230d07.jar" />
+        <dex dex="C:\Users\Hugues\AndroidSAC\app\build\intermediates\pre-dexed\release\classes-b46b7431cd6a4162630d91950c1830197c07e371.jar" />
     </item>
     <item
-        jar="/home/hugues/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
+        jar="C:\Users\Hugues\AndroidSAC\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\libs\internal_impl-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="C:\Users\Hugues\AndroidSAC\app\build\intermediates\pre-dexed\release\internal_impl-23.1.0-bef48fbedc899af6029e5602430faf472e316f7c.jar" />
+    </item>
+    <item
+        jar="C:\Users\Hugues\AndroidSAC\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="C:\Users\Hugues\AndroidSAC\app\build\intermediates\pre-dexed\release\classes-70049ae7ec46f99f6972f58849869df5d47df0b4.jar" />
+    </item>
+    <item
+        jar="C:\Users\Hugues\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.0\support-annotations-23.1.0.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="92e3fc113ec3ee36b64603a38857b95700025633">
-        <dex dex="/home/hugues/AndroidSAC/app/build/intermediates/pre-dexed/release/support-annotations-23.1.0-7ae9ca8ca83feb13d26ff8f9682d521bc7d49eb9.jar" />
+        <dex dex="C:\Users\Hugues\AndroidSAC\app\build\intermediates\pre-dexed\release\support-annotations-23.1.0-5eea4321e44f0d4ec719fbbf04e3ce70d8e2c8a2.jar" />
     </item>
 
 </items>

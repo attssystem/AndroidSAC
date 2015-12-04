@@ -1,5 +1,6 @@
 package xyz.attssystem.attssac;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
@@ -90,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // It shows the "help".
-                textUpdate(term, "\n\n\nYou have 20 servers (as much as Verizon).\nYou have to destroy all of their servers before they do with yours.\nYou have 3 commands :\n-MITM : -1 Verizon server;\n-OVERCPU : Destroy 1 to 4 of their servers but 0 to 2 of yours too;\n-FIX : Fix one of your server.\nA GREEN arrow is good for you but a RED one isn't.\nAn 'A' line is your action,a 'V' is an action of Verizon.\n\nHugues Kadi aka ATTSSystem\n\n\n", Color.LTGRAY);
+                startActivity(new Intent(MainActivity.this, Help.class));
             }
         });
 
