@@ -94,7 +94,7 @@
         android:id="@+id/term"
         android:layout_width="350dp"
         android:layout_height="350dp"
-        android:background="#000000"
+        android:background="#a9a9a9"
         android:scrollbars = "vertical"
         android:layout_below="@+id/mitm"
         android:layout_centerHorizontal="true" />

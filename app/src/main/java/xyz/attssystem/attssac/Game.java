@@ -53,7 +53,7 @@ public class Game extends AppCompatActivity {
                 verizonServers--;
                 // It writes it in the "Terminal",
                 textUpdate(term, "\nA", Color.LTGRAY);
-                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, ">_ ", Color.GREEN);
                 textUpdate(term, "MITM-Verizon servers -1", Color.WHITE);
                 // It makes Verizon hitting back.
                 vAttack();
@@ -77,7 +77,7 @@ public class Game extends AppCompatActivity {
                 // It makes the user fixing a server.
                 attsServers++;
                 textUpdate(term, "\nA", Color.LTGRAY);
-                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, ">_ ", Color.GREEN);
                 textUpdate(term, "FIX-ATTS severs + 1", Color.WHITE);
                 // It makes Verizon hitting back.
                 vAttack();
@@ -96,22 +96,22 @@ public class Game extends AppCompatActivity {
         if (rand == 1) {
             verizonServers--;
             textUpdate(term, "\nA", Color.LTGRAY);
-            textUpdate(term, ">", Color.GREEN);
+            textUpdate(term, ">_ ", Color.GREEN);
             textUpdate(term, "OverCPU-Verizon servers -1", Color.WHITE);
         } else if (rand == 2) {
             verizonServers -= 2;
             textUpdate(term, "\nA", Color.LTGRAY);
-            textUpdate(term, ">", Color.GREEN);
+            textUpdate(term, ">_ ", Color.GREEN);
             textUpdate(term, "OverCPU-Verizon servers -2", Color.WHITE);
         } else if (rand == 3) {
             verizonServers -= 3;
             textUpdate(term, "\nA", Color.LTGRAY);
-            textUpdate(term, ">", Color.GREEN);
+            textUpdate(term, ">_ ", Color.GREEN);
             textUpdate(term, "OverCPU-Verizon servers -3", Color.WHITE);
         } else if (rand == 4) {
             verizonServers -= 4;
             textUpdate(term, "\nA", Color.LTGRAY);
-            textUpdate(term, ">", Color.GREEN);
+            textUpdate(term, ">_ ", Color.GREEN);
             textUpdate(term, "OverCPU-Verizon servers -4", Color.WHITE);
         }
         // Then it takes another random value (1 to 2 included)
@@ -121,12 +121,12 @@ public class Game extends AppCompatActivity {
         if (rand == 1) {
             attsServers--;
             textUpdate(term, "\nA", Color.LTGRAY);
-            textUpdate(term, ">", Color.RED);
+            textUpdate(term, ">_ ", Color.RED);
             textUpdate(term, "OverCPU-ATTS servers -1", Color.WHITE);
         } else if (rand == 2) {
             attsServers -= 2;
             textUpdate(term, "\nA", Color.LTGRAY);
-            textUpdate(term, ">", Color.RED);
+            textUpdate(term, ">_ ", Color.RED);
             textUpdate(term, "OverCPU-ATTS servers -2", Color.WHITE);
         }
         // It makes Verizon hitting back.
@@ -144,7 +144,7 @@ public class Game extends AppCompatActivity {
         if (rand == 1) {
             attsServers--;
             textUpdate(term, "\nV", Color.LTGRAY);
-            textUpdate(term, ">", Color.RED);
+            textUpdate(term, ">_ ", Color.RED);
             textUpdate(term, "MITM-ATTS servers -1", Color.WHITE);
         } else if (rand == 2) {
             // It takes a random number (1 to 4 included),
@@ -154,22 +154,22 @@ public class Game extends AppCompatActivity {
             if (rand == 1) {
                 attsServers--;
                 textUpdate(term, "\nV", Color.LTGRAY);
-                textUpdate(term, ">", Color.RED);
+                textUpdate(term, ">_ ", Color.RED);
                 textUpdate(term, "OverCPU-ATTS servers -1", Color.WHITE);
             } else if (rand == 2) {
                 attsServers -= 2;
                 textUpdate(term, "\nV", Color.LTGRAY);
-                textUpdate(term, ">", Color.RED);
+                textUpdate(term, ">_ ", Color.RED);
                 textUpdate(term, "OverCPU-ATTS servers -2", Color.WHITE);
             } else if (rand == 3) {
                 attsServers -= 3;
                 textUpdate(term, "\nV", Color.LTGRAY);
-                textUpdate(term, ">", Color.RED);
+                textUpdate(term, ">_ ", Color.RED);
                 textUpdate(term, "OverCPU-ATTS servers -3", Color.WHITE);
             } else if (rand == 4) {
                 attsServers -= 4;
                 textUpdate(term, "\nV", Color.LTGRAY);
-                textUpdate(term, ">", Color.RED);
+                textUpdate(term, ">_ ", Color.RED);
                 textUpdate(term, "OverCPU-ATTS servers -4", Color.WHITE);
             }
             // It takes another random number (1 to 2 included),
@@ -179,17 +179,17 @@ public class Game extends AppCompatActivity {
             if (rand == 1) {
                 verizonServers--;
                 textUpdate(term, "\nV", Color.LTGRAY);
-                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, ">_ ", Color.GREEN);
                 textUpdate(term, "OverCPU-Verizon servers -1", Color.WHITE);
             } else if (rand == 2) {
                 verizonServers -= 2;
                 textUpdate(term, "\nV", Color.LTGRAY);
-                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, ">_ ", Color.GREEN);
                 textUpdate(term, "OverCPU-Verizon servers -2", Color.WHITE);
             } else if (rand == 3) {
                 verizonServers++;
                 textUpdate(term, "\nV", Color.LTGRAY);
-                textUpdate(term, ">", Color.GREEN);
+                textUpdate(term, ">_ ", Color.GREEN);
                 textUpdate(term, "Verizon servers + 1", Color.WHITE);
             }
         }
@@ -197,18 +197,20 @@ public class Game extends AppCompatActivity {
     // This function verifies if someone won.
     public void checkWin() {
         if (attsServers <= 0) {
-            textUpdate(term, "\n>_", Color.BLUE);
+			term.setText("");
+            textUpdate(term, ">_ ", Color.BLUE);
             textUpdate(term, "You lose!", Color.RED);
-            textUpdate(term, "\n>_", Color.BLUE);
+            textUpdate(term, "\n>_ ", Color.BLUE);
             textUpdate(term, "GAME RESTARTED", Color.BLUE);
             attsServers = 20;
             verizonServers = 20;
         } else if (verizonServers <= 0) {
-            textUpdate(term, "\n>_", Color.BLUE);
+			term.setText("");
+            textUpdate(term, ">_ ", Color.BLUE);
             textUpdate(term, "You win!", Color.GREEN);
-            textUpdate(term, "\n>_", Color.BLUE);
+            textUpdate(term, "\n>_ ", Color.BLUE);
             textUpdate(term, "You were appointed chief of the security team!", Color.GREEN);
-            textUpdate(term, "\n>_", Color.BLUE);
+            textUpdate(term, "\n>_ ", Color.BLUE);
             textUpdate(term, "GAME RESTARTED", Color.BLUE);
             attsServers = 20;
             verizonServers = 20;
