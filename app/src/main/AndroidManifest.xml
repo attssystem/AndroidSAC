@@ -7,7 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="ATTS S.A.C"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat" >
+        android:theme="@style/AttsTheme" >
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Help" >
+        </activity>
+        <activity android:name=".Game" >
         </activity>
     </application>
 

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?android:attr/buttonBarStyle"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="xyz.attssystem.attssac.Game"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:layout_gravity="center"
+        android:text="Servers' Administration Center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:id="@+id/textView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:id="@+id/mitm"
+        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:text="MITM"
+        android:layout_alignTop="@+id/overcpu"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:id="@+id/overcpu"
+        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:text="OverCPU"
+        android:layout_alignTop="@+id/fix"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        style="?android:attr/buttonBarButtonStyle"
+        android:id="@+id/fix"
+        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:text="Fix"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="23dp" />
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ATTS"
+        android:id="@+id/textView2"
+        android:layout_alignTop="@+id/aServers"
+        android:layout_alignLeft="@+id/term"
+        android:layout_alignStart="@+id/term" />
+
+    <TextView
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verizon"
+        android:id="@+id/textView4"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/aServers"
+        android:textSize="20sp"
+        android:text="20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/mitm"
+        android:layout_toEndOf="@+id/mitm" />
+
+    <TextView
+        android:id="@+id/vServers"
+        android:textSize="20sp"
+        android:text="20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/aServers"
+        android:layout_alignBottom="@+id/aServers"
+        android:layout_toLeftOf="@+id/fix"
+        android:layout_toStartOf="@+id/fix" />
+    <TextView
+        android:id="@+id/term"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:background="#000000"
+        android:scrollbars = "vertical"
+        android:layout_below="@+id/mitm"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
