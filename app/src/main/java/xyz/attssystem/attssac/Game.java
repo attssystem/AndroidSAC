@@ -17,6 +17,7 @@ public class Game extends AppCompatActivity {
     int attsServers = 20;
     int verizonServers = 20;
     int rand;
+	int rand1;
     TextView term;
     TextView aServers;
     TextView vServers;
@@ -52,9 +53,9 @@ public class Game extends AppCompatActivity {
                 // It makes Verizon losing a server,
                 verizonServers--;
                 // It writes it in the "Terminal",
-                textUpdate(term, "\nA", Color.LTGRAY);
+                textUpdate(term, "\nA-MITM", Color.LTGRAY);
                 textUpdate(term, ">_ ", Color.GREEN);
-                textUpdate(term, "MITM-Verizon servers -1", Color.WHITE);
+                textUpdate(term, "Verizon servers -1", Color.WHITE);
                 // It makes Verizon hitting back.
                 vAttack();
                 // It verifies if someone won.
@@ -76,9 +77,9 @@ public class Game extends AppCompatActivity {
             public void onClick(View v) {
                 // It makes the user fixing a server.
                 attsServers++;
-                textUpdate(term, "\nA", Color.LTGRAY);
+                textUpdate(term, "\nA-FIX", Color.LTGRAY);
                 textUpdate(term, ">_ ", Color.GREEN);
-                textUpdate(term, "FIX-ATTS severs + 1", Color.WHITE);
+                textUpdate(term, "ATTS severs + 1", Color.WHITE);
                 // It makes Verizon hitting back.
                 vAttack();
                 // It verifies if someone won.
@@ -95,39 +96,39 @@ public class Game extends AppCompatActivity {
         // Depending on the number value, Verizon will lose 1 to 4 server(s).
         if (rand == 1) {
             verizonServers--;
-            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, "\nA-OVERCPU", Color.LTGRAY);
             textUpdate(term, ">_ ", Color.GREEN);
-            textUpdate(term, "OverCPU-Verizon servers -1", Color.WHITE);
+            textUpdate(term, "Verizon servers -1", Color.WHITE);
         } else if (rand == 2) {
             verizonServers -= 2;
-            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, "\nA-OVERCPU", Color.LTGRAY);
             textUpdate(term, ">_ ", Color.GREEN);
-            textUpdate(term, "OverCPU-Verizon servers -2", Color.WHITE);
+            textUpdate(term, "Verizon servers -2", Color.WHITE);
         } else if (rand == 3) {
             verizonServers -= 3;
-            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, "\nA-OVERCPU", Color.LTGRAY);
             textUpdate(term, ">_ ", Color.GREEN);
-            textUpdate(term, "OverCPU-Verizon servers -3", Color.WHITE);
+            textUpdate(term, "Verizon servers -3", Color.WHITE);
         } else if (rand == 4) {
             verizonServers -= 4;
-            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, "\nA-OVERCPU", Color.LTGRAY);
             textUpdate(term, ">_ ", Color.GREEN);
-            textUpdate(term, "OverCPU-Verizon servers -4", Color.WHITE);
+            textUpdate(term, "Verizon servers -4", Color.WHITE);
         }
         // Then it takes another random value (1 to 2 included)
         Random r1 = new Random();
-        rand = r1.nextInt(4 - 1) + 1;
+        rand = r1.nextInt(3 - 1) + 1;
         // If it is 0 nothing happens else the user will lose 1 to 2 server(s).
         if (rand == 1) {
             attsServers--;
-            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, "\nA-OVERCPU", Color.LTGRAY);
             textUpdate(term, ">_ ", Color.RED);
-            textUpdate(term, "OverCPU-ATTS servers -1", Color.WHITE);
+            textUpdate(term, "but ATTS servers -1", Color.WHITE);
         } else if (rand == 2) {
             attsServers -= 2;
-            textUpdate(term, "\nA", Color.LTGRAY);
+            textUpdate(term, "\nA-OVERCPU", Color.LTGRAY);
             textUpdate(term, ">_ ", Color.RED);
-            textUpdate(term, "OverCPU-ATTS servers -2", Color.WHITE);
+            textUpdate(term, "but ATTS servers -2", Color.WHITE);
         }
         // It makes Verizon hitting back.
         vAttack();
@@ -139,60 +140,62 @@ public class Game extends AppCompatActivity {
     public void vAttack() {
         // It takes a random number (1 to 3 included),
         Random r = new Random();
-        rand = r.nextInt(4 - 1) + 1;
+        rand = r.nextInt(7 - 1) + 1;
         // Depending on the number value, Verizon will use a specific attack.
         if (rand == 1) {
             attsServers--;
-            textUpdate(term, "\nV", Color.LTGRAY);
+            textUpdate(term, "\nV-MITM", Color.LTGRAY);
             textUpdate(term, ">_ ", Color.RED);
-            textUpdate(term, "MITM-ATTS servers -1", Color.WHITE);
-        } else if (rand == 2) {
+            textUpdate(term, "ATTS servers -1", Color.WHITE);
+        } else if (rand == 2 || rand == 4 || rand == 5 || rand == 6) {
             // It takes a random number (1 to 4 included),
             Random r1 = new Random();
-            rand = r1.nextInt(5 - 1) + 1;
+            rand = r1.nextInt(11 - 1) + 1;
             // Depending on the number value, the user will lose 1 to 4 server(s).
             if (rand == 1) {
                 attsServers--;
-                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, "\nV-OVERCPU", Color.LTGRAY);
                 textUpdate(term, ">_ ", Color.RED);
-                textUpdate(term, "OverCPU-ATTS servers -1", Color.WHITE);
-            } else if (rand == 2) {
+                textUpdate(term, "ATTS servers -1", Color.WHITE);
+            } else if (rand == 2 || rand == 5 || rand == 6 || rand == 7) {
                 attsServers -= 2;
-                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, "\nV-OVERCPU", Color.LTGRAY);
                 textUpdate(term, ">_ ", Color.RED);
-                textUpdate(term, "OverCPU-ATTS servers -2", Color.WHITE);
-            } else if (rand == 3) {
+                textUpdate(term, "ATTS servers -2", Color.WHITE);
+            } else if (rand == 3 || rand == 8 || rand == 9) {
                 attsServers -= 3;
-                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, "\nV-OVERCPU", Color.LTGRAY);
                 textUpdate(term, ">_ ", Color.RED);
-                textUpdate(term, "OverCPU-ATTS servers -3", Color.WHITE);
-            } else if (rand == 4) {
+                textUpdate(term, "ATTS servers -3", Color.WHITE);
+            } else if (rand == 4 || rand == 10) {
                 attsServers -= 4;
-                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, "\nV-OVERCPU", Color.LTGRAY);
                 textUpdate(term, ">_ ", Color.RED);
-                textUpdate(term, "OverCPU-ATTS servers -4", Color.WHITE);
+                textUpdate(term, "ATTS servers -4", Color.WHITE);
             }
             // It takes another random number (1 to 2 included),
             Random r2 = new Random();
-            rand = r2.nextInt(4 - 1) + 1;
+            rand1 = r2.nextInt(6- 1) + 1;
             // If it is 0 nothing happens else Verizon will lose 1 to 2 server(s).
-            if (rand == 1) {
+            if (rand1 == 1) {
                 verizonServers--;
-                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, "\nV-OVERCPU", Color.LTGRAY);
                 textUpdate(term, ">_ ", Color.GREEN);
-                textUpdate(term, "OverCPU-Verizon servers -1", Color.WHITE);
-            } else if (rand == 2) {
+                textUpdate(term, "but Verizon servers -1", Color.WHITE);
+            } else if (rand1 == 2) {
                 verizonServers -= 2;
-                textUpdate(term, "\nV", Color.LTGRAY);
+                textUpdate(term, "\nV-OVERCPU", Color.LTGRAY);
                 textUpdate(term, ">_ ", Color.GREEN);
-                textUpdate(term, "OverCPU-Verizon servers -2", Color.WHITE);
-            } else if (rand == 3) {
-                verizonServers++;
-                textUpdate(term, "\nV", Color.LTGRAY);
-                textUpdate(term, ">_ ", Color.GREEN);
-                textUpdate(term, "Verizon servers + 1", Color.WHITE);
+                textUpdate(term, "but Verizon servers -2", Color.WHITE);
             }
         }
+		
+    else if (rand == 3) {
+		verizonServers++;
+		textUpdate(term, "\nV-FIX", Color.LTGRAY);
+		textUpdate(term, ">_ ", Color.GREEN);
+		textUpdate(term, "Verizon servers + 1", Color.WHITE);
+	}
     }
     // This function verifies if someone won.
     public void checkWin() {
@@ -241,5 +244,3 @@ public class Game extends AppCompatActivity {
             tv.scrollTo(0, 0);
     }
 }
-
-
