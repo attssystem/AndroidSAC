@@ -11,15 +11,15 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="You have 20 servers (as much as Verizon).\nYou have to destroy all of their servers before they do with yours.\nYou have 3 commands :\n-MITM : -1 Verizon server;\n-OVERCPU : Destroy 1 to 4 of their servers but 0 to 2 of yours too;\n-FIX : Fix one of your server.\nA GREEN arrow is good for you but a RED one isn't.\nAn 'A' line is your action,a 'V' is an action of Verizon.\n\nHugues Kadi aka ATTSSystem
+        android:textSize="15dp"
+        android:text="You have 20 servers (as much as Verizon).\nYou have to destroy all of their servers before they do with yours.\nYou have 3 commands :\n-MITM : -1 Verizon server;\n-OVERCPU : Destroy 1 to 4 of their servers but 0 to 2 of yours too;\n-FIX : Fix one of your server.\nA GREEN arrow is good for you but a RED one isn't.\nAn 'A' line is your action, a 'V' is an action of Verizon.\n\nHugues Kadi aka ATTSSystem
 "
         android:id="@+id/textView3" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:text="www.attssystem.xyz"
         android:autoLink="web"
         android:layout_below="@+id/textView3"

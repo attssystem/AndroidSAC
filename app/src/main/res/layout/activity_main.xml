@@ -16,9 +16,10 @@
         android:text="Play"
         android:id="@+id/button4"
         android:textSize="30dp"
+        style="?android:attr/buttonBarButtonStyle"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        style="?android:attr/buttonBarButtonStyle" />
+        android:layout_marginTop="58dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +28,8 @@
         android:textSize="30dp"
         style="?android:attr/buttonBarButtonStyle"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,9 +37,9 @@
         android:id="@+id/button2"
         android:textSize="30dp"
         style="?android:attr/buttonBarButtonStyle"
-        android:layout_below="@+id/button4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -45,9 +47,9 @@
         android:id="@+id/imageView"
         android:src="@drawable/favicon"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

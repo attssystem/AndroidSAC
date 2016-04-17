@@ -55,6 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ATTS"
+        android:textColor="#008000"
         android:id="@+id/textView2"
         android:layout_alignTop="@+id/aServers"
         android:layout_alignLeft="@+id/term"
@@ -65,6 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Verizon"
+        android:textColor="#ff0000"
         android:id="@+id/textView4"
         android:layout_alignTop="@+id/textView2"
         android:layout_alignParentRight="true"
@@ -92,9 +94,8 @@
         android:layout_toStartOf="@+id/fix" />
     <TextView
         android:id="@+id/term"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:background="#a9a9a9"
+        android:layout_width="400dp"
+        android:layout_height="500dp"
         android:scrollbars = "vertical"
         android:layout_below="@+id/mitm"
         android:layout_centerHorizontal="true" />
