@@ -154,34 +154,34 @@ public class Game extends AppCompatActivity {
                     public void run() {
                         // It takes a random number (1 to 3 included),
                         Random r = new Random();
-                        rand = r.nextInt(4 - 1) + 1;
+                        rand = r.nextInt(7 - 1) + 1;
                         // Depending on the number value, Verizon will use a specific attack.
                         if (rand == 1) {
                             attsServers--;
                             textUpdate(term, "\nV", Color.DKGRAY);
                             textUpdate(term, ">_ ", Color.RED);
                             textUpdate(term, "MITM-ATTS Servers -1", Color.GRAY);
-                        } else if (rand == 2) {
+                        } else if (rand == 2 || rand == 4 || rand == 5 || rand == 6) {
                             // It takes a random number (1 to 4 included),
                             Random r1 = new Random();
-                            rand = r1.nextInt(5 - 1) + 1;
+                            rand = r1.nextInt(11 - 1) + 1;
                             // Depending on the number value, the user will lose 1 to 4 server(s).
                             if (rand == 1) {
                                 attsServers--;
                                 textUpdate(term, "\nV", Color.DKGRAY);
                                 textUpdate(term, ">_ ", Color.RED);
                                 textUpdate(term, "OverCPU-ATTS Servers -1", Color.GRAY);
-                            } else if (rand == 2) {
+                            } else if (rand == 2 || rand == 5 || rand == 6 || rand == 7) {
                                 attsServers = attsServers - 2;
                                 textUpdate(term, "\nV", Color.DKGRAY);
                                 textUpdate(term, ">_ ", Color.RED);
                                 textUpdate(term, "OverCPU-ATTS Servers -2", Color.GRAY);
-                            } else if (rand == 3) {
+                            } else if (rand == 3 || rand == 8 || rand == 9) {
                                 attsServers = attsServers -3;
                                 textUpdate(term, "\nV", Color.DKGRAY);
                                 textUpdate(term, ">_ ", Color.RED);
                                 textUpdate(term, "OverCPU-ATTS Servers -3", Color.GRAY);
-                            } else if (rand == 4) {
+                            } else if (rand == 4 || rand == 10) {
                                 attsServers = attsServers - 4;
                                 textUpdate(term, "\nV", Color.DKGRAY);
                                 textUpdate(term, ">_ ", Color.RED);
@@ -190,7 +190,7 @@ public class Game extends AppCompatActivity {
                             // It takes another random number (1 to 2 included),
                             Random r2 = new Random();
                             rand = r2.nextInt(5 - 1) + 1;
-                            // If it is 0 nothing happens else Verizon will lose 1 to 2 server(s).
+                            // If it is 4 nothing happens else Verizon will lose 1 to 2 server(s).
                             if (rand == 1) {
                                 verizonServers--;
                                 textUpdate(term, "\nV", Color.DKGRAY);
@@ -241,6 +241,9 @@ public class Game extends AppCompatActivity {
             Spannable dead = new SpannableString("DEAD");
             dead.setSpan(new ForegroundColorSpan(Color.RED), 0, dead.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             aServers.setText(dead);
+            Spannable winner = new SpannableString("WINNER");
+            winner.setSpan(new ForegroundColorSpan(Color.GREEN), 0, winner.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            vServers.setText(winner);
             term.setText("");
             textUpdate(term, ">_ ", Color.BLUE);
             textUpdate(term, "You lose!", Color.RED);
@@ -259,6 +262,7 @@ public class Game extends AppCompatActivity {
                             textUpdate(term, ">_GAME RESTARTED", Color.BLUE);
                             start = true;
                             aServers.setText(String.valueOf(attsServers));
+                            vServers.setText(String.valueOf(verizonServers));
                         }
                     });
                 }
@@ -273,6 +277,9 @@ public class Game extends AppCompatActivity {
             Spannable dead = new SpannableString("DEAD");
             dead.setSpan(new ForegroundColorSpan(Color.RED), 0, dead.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             vServers.setText(dead);
+            Spannable winner = new SpannableString("WINNER");
+            winner.setSpan(new ForegroundColorSpan(Color.GREEN), 0, winner.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+            aServers.setText(winner);
             term.setText("");
             textUpdate(term, ">_ ", Color.BLUE);
             textUpdate(term, "You win!", Color.GREEN);
@@ -293,6 +300,7 @@ public class Game extends AppCompatActivity {
                             textUpdate(term, ">_GAME RESTARTED", Color.BLUE);
                             start = true;
                             vServers.setText(String.valueOf(verizonServers));
+                            aServers.setText(String.valueOf(attsServers));
                         }
                     });
                 }
@@ -314,5 +322,3 @@ public class Game extends AppCompatActivity {
             tv.scrollTo(0, 0);
     }
 }
-
-
